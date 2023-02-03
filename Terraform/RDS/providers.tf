@@ -5,7 +5,7 @@ provider "aws" {
 terraform {
   backend "s3" {
     bucket        = "bysystem-tm"
-    dynamodb_table = "terraform-state-locking"
+    dynamodb_table = "terraform_statelocking"
     region        = "ap-south-1"
   }
 }
