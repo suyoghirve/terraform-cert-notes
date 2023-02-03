@@ -1,7 +1,6 @@
 provider "aws" {
-  region     = "us-east-1"
-  access_key = ""
-  secret_key = ""
+  region  = "ap-south-1"
+  profile = "planitnerd"
 }
 terraform {
   backend "s3" {
