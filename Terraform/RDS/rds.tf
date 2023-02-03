@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "4.51.0"
+    }
+  }
+
+}
 resource "aws_db_instance" "mysqlrds-demo" {
   allocated_storage    = 5
   storage_type         = "gp2"
