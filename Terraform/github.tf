@@ -8,7 +8,7 @@ resource "github_repository" "example_from_terraform" {
 }
 provider "gitlab" {
   token = var.gitlab_token #token is saved in terraform.tfvars file in the path
-  
+
 }
 
 # Add a project owned by the user

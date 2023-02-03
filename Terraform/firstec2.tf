@@ -22,8 +22,8 @@ provider "aws" {
 
 terraform {
   backend "s3" {
-    bucket        = "bysystem-tm"
-    region        = "ap-south-1"
+    bucket = "bysystem-tm"
+    region = "ap-south-1"
   }
 }
 /*
