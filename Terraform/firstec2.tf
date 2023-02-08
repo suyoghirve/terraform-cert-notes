@@ -17,15 +17,13 @@ terraform {
 }
 provider "aws" {
   region  = "ap-south-1"
-  
+  profile = "planitnerd"
 }
 
 terraform {
-  cloud {
-    organization = "suyoghirve-org"
-    workspaces {
-      name = "test-workspace"
-    }
+  backend "s3" {
+    bucket = "bysystem-tm"
+    region = "ap-south-1"
   }
 }
 /*
