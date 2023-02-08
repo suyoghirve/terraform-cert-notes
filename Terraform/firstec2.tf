@@ -21,9 +21,11 @@ provider "aws" {
 }
 
 terraform {
-  backend "s3" {
-    bucket = "bysystem-tm"
-    region = "ap-south-1"
+  cloud {
+    organization = "suyoghirve-org"
+    workspaces {
+      name = "Terraform"
+    }
   }
 }
 /*
