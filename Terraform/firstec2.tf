@@ -24,7 +24,7 @@ terraform {
   cloud {
     organization = "suyoghirve-org"
     workspaces {
-      name = "Terraform"
+      name = "test-workspace"
     }
   }
 }
