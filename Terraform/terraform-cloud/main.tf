@@ -7,10 +7,7 @@ terraform {
   }
 
 }
-provider "aws" {
-  region  = "ap-south-1"
-  profile = "planitnerd"
-}
+provider "aws" {}
 
 terraform {
   cloud {
