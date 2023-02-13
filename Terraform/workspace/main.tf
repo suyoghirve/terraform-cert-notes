@@ -9,6 +9,7 @@ terraform {
       version = "5.15.0"
     }
     gitlab = {
+      alias = gitlab
       source  = "gitlabhq/gitlab"
       version = "15.8.0"
     }
