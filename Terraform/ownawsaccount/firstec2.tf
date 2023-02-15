@@ -39,6 +39,6 @@ resource "aws_instance" "web2" {
   count         = 2
   tags = {
     #Name = "HelloWorld-renew.${count.index}"  # this will create 3 ec2 with same name
-    Name = var.ec2-name[count.index] #ec2 instancw will create by name dev, stage & prod
+    Name = var.web2[count.index] #ec2 instancw will create by name dev, stage & prod
   }
 }
