@@ -34,7 +34,7 @@ resource "aws_s3_bucket_versioning" "bysystem-tm" {
 */
 
 resource "aws_instance" "web2" {
-  ami           = "ami-0cca134ec43cf708f"
+  ami           = "ami-0dfcb1ef8550277af"
   instance_type = "t2.micro"
   count         = 2
   tags = {
