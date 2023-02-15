@@ -16,14 +16,14 @@ terraform {
 
 }
 provider "aws" {
-  region  = "ap-south-1"
-  profile = "planitnerd"
+  region  = "us-east-1"
+  profile = "devops"
 }
 
 terraform {
   backend "s3" {
-    bucket = "bysystem-tm"
-    region = "ap-south-1"
+    bucket = "terraform-suyog"
+    region = "us-east-1"
   }
 }
 /*
