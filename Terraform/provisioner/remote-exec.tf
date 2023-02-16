@@ -19,7 +19,7 @@ provider "aws" {
 resource "aws_instance" "web2" {
   ami           = "ami-0dfcb1ef8550277af"
   instance_type = "t2.micro"
-  key_name = "terraform-key"
+  key_name = "ownkey"
   tags = {
     Name = "terraform-provisioner"
   }
@@ -27,7 +27,7 @@ resource "aws_instance" "web2" {
     connection {
     type     = "ssh"
     user     = "ec2-user"
-    private_key = file("./terraform-key.pem")
+    private_key = file("./ownkey")
     host     = self.public_ip
   }
 
