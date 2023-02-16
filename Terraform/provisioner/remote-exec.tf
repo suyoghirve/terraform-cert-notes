@@ -36,5 +36,5 @@ resource "aws_instance" "web2" {
       "sudo amazon-linux-extras install nginx1 -y",
       "sudo systemctl start nginx"
     ]
-  }
-}*/
+  }*/
+}
