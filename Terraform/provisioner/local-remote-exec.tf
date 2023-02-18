@@ -19,17 +19,17 @@ resource "aws_instance" "web2" {
   ami           = "ami-0dfcb1ef8550277af"
   instance_type = "t2.micro"
   key_name = "ownkey"
-  provisioner "local-exec" {
+  /*provisioner "local-exec" {
     command = "echo ${self.private_ip} >> private_ips.txt"
-  }
+  }*/
   tags = {
     Name = "terraform-provisioner"
   }
     
-   /* connection {
+    connection {
     type     = "ssh"
     user     = "ec2-user"
-    private_key = file("./ownkey.pem")
+    private_key = "${file(./ownkey)}"
     host     = self.public_ip
   }
 
@@ -39,7 +39,7 @@ resource "aws_instance" "web2" {
       "sudo amazon-linux-extras install nginx1 -y",
       "sudo systemctl start nginx"
     ]
-  }*/
+  }
 }
 
 output "public_ip"{
