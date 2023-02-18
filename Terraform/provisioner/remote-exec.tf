@@ -19,6 +19,9 @@ resource "aws_instance" "web2" {
   ami           = "ami-0dfcb1ef8550277af"
   instance_type = "t2.micro"
   key_name = "ownkey"
+  provisioner "local-exec" {
+    command = "echo ${self.private_ip} >> private_ips.txt"
+  }
   tags = {
     Name = "terraform-provisioner"
   }
