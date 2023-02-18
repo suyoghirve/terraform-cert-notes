@@ -38,3 +38,7 @@ resource "aws_instance" "web2" {
     ]
   }*/
 }
+
+output "public_ip"{
+  value = aws_instance.web2.public_ip
+}
