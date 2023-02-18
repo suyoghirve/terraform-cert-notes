@@ -25,7 +25,7 @@ resource "aws_instance" "web2" {
   tags = {
     Name = "terraform-provisioner"
   }
-  resource "aws_security_group" "allow_tls" {
+resource "aws_security_group" "allow_ssh" {
   name        = "allow_tls"
   description = "Allow TLS inbound traffic"
   vpc_id      = "vpc-05c9a0905597d37d9"
