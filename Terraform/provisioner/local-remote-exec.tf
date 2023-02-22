@@ -5,10 +5,10 @@ terraform {
       version = "4.51.0"
     }
   }
- /* backend "s3" {
+  backend "s3" {
     bucket        = "terraform-suyog"
     region        = "us-east-1"
-  }*/
+  }
 
 }
 provider "aws" {
