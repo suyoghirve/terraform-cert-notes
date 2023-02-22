@@ -53,7 +53,7 @@ resource "aws_instance" "web2" {
   connection {
     type     = "ssh"
     user     = "ec2-user"
-    private_key = "file(ownkey.pem)"
+    private_key = file("ownkey.pem")
     host     = self.public_ip
   }
 
