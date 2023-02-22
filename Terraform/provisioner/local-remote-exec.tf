@@ -16,7 +16,7 @@ provider "aws" {
 }
 
 resource "aws_security_group" "allow_ssh" {
-  name        = "allow_ssh"
+  name        = "allow_ssh_http"
   description = "Allow SSH inbound traffic"
   vpc_id      = "vpc-05c9a0905597d37d9"
 
@@ -24,6 +24,14 @@ resource "aws_security_group" "allow_ssh" {
     description      = "SSH from VPC"
     from_port        = 22
     to_port          = 22
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description      = "HTTP from VPC"
+    from_port        = 80
+    to_port          = 80
     protocol         = "tcp"
     cidr_blocks      = ["0.0.0.0/0"]
   }
