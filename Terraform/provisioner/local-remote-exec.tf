@@ -49,7 +49,7 @@ resource "aws_instance" "web2" {
   tags = {
     Name = "allow_sshnew"
   }*/
-}
+
     connection {
     type     = "ssh"
     user     = "ec2-user"
@@ -64,7 +64,7 @@ resource "aws_instance" "web2" {
       "sudo systemctl start nginx"
     ]
   }
-
+}
 output "public_ip"{
   value = aws_instance.web2.public_ip
 }
