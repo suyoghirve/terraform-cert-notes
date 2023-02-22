@@ -15,7 +15,7 @@ provider "aws" {
   region  = "us-east-1"
 }
 
-resource "aws_security_group" "allow_ssh" {
+resource "aws_security_group" "allow_ssh_http" {
   name        = "allow_ssh_http"
   description = "Allow SSH inbound traffic"
   vpc_id      = "vpc-05c9a0905597d37d9"
@@ -47,7 +47,7 @@ resource "aws_instance" "web2" {
   ami           = "ami-0dfcb1ef8550277af"
   instance_type = "t2.micro"
   key_name = "ownkey"
-  security_groups = ["allow_ssh"]
+  security_groups = ["allow_ssh_http"]
   /*provisioner "local-exec" {
     command = "echo ${self.private_ip} >> private_ips.txt"
   }*/
