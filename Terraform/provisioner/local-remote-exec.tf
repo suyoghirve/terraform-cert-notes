@@ -50,7 +50,7 @@ resource "aws_instance" "web2" {
     Name = "allow_sshnew"
   }*/
 
-    connection {
+  connection {
     type     = "ssh"
     user     = "ec2-user"
     private_key = "file(./ownkey.pem)"
