@@ -5,10 +5,10 @@ terraform {
       version = "4.51.0"
     }
   }
-  backend "s3" {
+ /* backend "s3" {
     bucket        = "terraform-suyog"
     region        = "us-east-1"
-  }
+  }*/
 
 }
 provider "aws" {
@@ -39,7 +39,7 @@ resource "aws_instance" "web2" {
   ami           = "ami-0dfcb1ef8550277af"
   instance_type = "t2.micro"
   key_name = "ownkey"
-  security_groups = ["cw-blog-3-sg-using-terraform"]
+  security_groups = ["allow_ssh"]
   /*provisioner "local-exec" {
     command = "echo ${self.private_ip} >> private_ips.txt"
   }*/
