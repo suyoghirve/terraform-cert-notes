@@ -47,7 +47,7 @@ resource "aws_instance" "web2" {
     Name = "terraform-provisioner"
   }
   tags = {
-    Name = "allow_ssh"
+    Name = "allow_sshnew"
   }
 }
     connection {
