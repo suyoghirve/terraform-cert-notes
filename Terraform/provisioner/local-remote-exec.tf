@@ -43,12 +43,12 @@ resource "aws_instance" "web2" {
   /*provisioner "local-exec" {
     command = "echo ${self.private_ip} >> private_ips.txt"
   }*/
-  tags = {
+  /*tags = {
     Name = "terraform-provisioner"
   }
   tags = {
     Name = "allow_sshnew"
-  }
+  }*/
 }
     connection {
     type     = "ssh"
