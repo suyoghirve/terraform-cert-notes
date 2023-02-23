@@ -58,7 +58,7 @@ resource "aws_instance" "web2" {
     Name = "allow_sshnew"
   }*/
   provisioner "file" {
-      content = "this is just a test"
+      content = "./ownkey.pem"
       destination = "/home/ec2-user/testfile.txt"
   }
   connection {
