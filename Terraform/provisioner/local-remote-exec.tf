@@ -70,7 +70,8 @@ resource "aws_instance" "web2" {
       "sudo yum update -y",
       "sudo amazon-linux-extras install nginx1 -y",
       "sudo systemctl start nginx",
-      "sudo systemctl enable nginx"
+      "sudo systemctl enable nginx",
+      "echo ${self.private_ip} >> /home/ec2-user/private_ips.txt"
     ]
   }
 }
