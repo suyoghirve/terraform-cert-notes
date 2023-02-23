@@ -2,4 +2,4 @@
 *.tfvars
 *.tfstate
 rds_pass.txt
-*.pem
+ownkey.pem
