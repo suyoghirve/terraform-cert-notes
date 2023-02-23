@@ -1,0 +1,5 @@
+.terraform
+*.tfvars
+*.tfstate
+rds_pass.txt
+*.pem
