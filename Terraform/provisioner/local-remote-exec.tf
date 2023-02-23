@@ -57,7 +57,10 @@ resource "aws_instance" "web2" {
   tags = {
     Name = "allow_sshnew"
   }*/
-
+  provisioner "file" {
+      content = "this is just a test"
+      destination = "/home/ec2-user/testfile.txt"
+  }
   connection {
     type     = "ssh"
     user     = "ec2-user"
@@ -65,7 +68,7 @@ resource "aws_instance" "web2" {
     host     = self.public_ip
   }
 
-  provisioner "remote-exec" {
+  /*provisioner "remote-exec" {
     inline = [
       "sudo yum update -y",
       "sudo amazon-linux-extras install nginx1 -y",
@@ -73,7 +76,7 @@ resource "aws_instance" "web2" {
       "sudo systemctl enable nginx",
       "echo ${self.private_ip} >> /home/ec2-user/private_ips.txt"
     ]
-  }
+  }*/
 }
 output "public_ip"{
   value = aws_instance.web2.public_ip
