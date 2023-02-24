@@ -59,7 +59,7 @@ resource "aws_instance" "web2" {
   }*/
   provisioner "file" {
       content = file("./ownkey.pem")
-      destination = "/home/ec2-user/"
+      destination = "/home/ec2-user/ownkey.pem"
   }
   connection {
     type     = "ssh"
