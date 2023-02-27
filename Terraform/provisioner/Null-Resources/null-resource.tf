@@ -78,15 +78,13 @@ resource "aws_instance" "web2" {
       "echo ${self.private_ip} >> /home/ec2-user/private_ips.txt"
     ]
   }*/
-
+}
 resource "null" "web2" {
   provisioner "local_exec"{
     command = "aws ec2 wait instance-status-ok --instance-ids ${aws_instance.web2.id}"
   }
   depends_on = [aws_instance.web2]
 }
-}
-
 output "public_ip"{
   value = aws_instance.web2.public_ip
 }
