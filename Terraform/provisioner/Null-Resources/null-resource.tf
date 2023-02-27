@@ -4,6 +4,10 @@ terraform {
       source  = "hashicorp/aws"
       version = "4.51.0"
     }
+    null = {
+      source = "hashicorp/null"
+      version = "3.2.1"
+    }
     
   }
   /*backend "s3" {
@@ -15,7 +19,12 @@ terraform {
 /*provider "aws" {
   region  = "us-east-1"
 }*/
-
+resource "null" "web2" {
+  provisioner "local_exec"{
+    command = "aws ec2 wait instance-status-ok --instance-ids ${aws_instance.web2.id}"
+  }
+  depends_on = [aws_instance.web2]
+}
 resource "aws_security_group" "allow_ssh_http" {
   name        = "allow_ssh_http"
   description = "Allow SSH inbound traffic"
@@ -79,12 +88,7 @@ resource "aws_instance" "web2" {
     ]
   }*/
 }
-resource "null" "web2" {
-  provisioner "local_exec"{
-    command = "aws ec2 wait instance-status-ok --instance-ids ${aws_instance.web2.id}"
-  }
-  depends_on = [aws_instance.web2]
-}
+
 output "public_ip"{
   value = aws_instance.web2.public_ip
 }
