@@ -3,8 +3,6 @@ terraform {
     aws = {
       source  = "hashicorp/aws"
       version = "4.51.0"
-      source = "hashicorp/null"
-      version = "3.2.1"
     }
     
   }
@@ -60,7 +58,7 @@ resource "aws_instance" "web2" {
   tags = {
     Name = "allow_sshnew"
   }*/
-  provisioner "file" {
+  /*provisioner "file" {
       content = file("./ownkey.pem")
       destination = "/home/ec2-user/ownkey.pem"
   }
@@ -69,7 +67,7 @@ resource "aws_instance" "web2" {
     user     = "ec2-user"
     private_key = file("ownkey.pem")
     host     = self.public_ip
-  }
+  }*/
 
   /*provisioner "remote-exec" {
     inline = [
@@ -81,14 +79,24 @@ resource "aws_instance" "web2" {
     ]
   }*/
 
+
+}
+
+terraform {
+  required_providers {
+    null = {
+      source = "hashicorp/null"
+      version = "3.2.1"
+    }
+  }
+}
+
 resource "null_resource" "web2" {
   provisioner "local_exec"{
     command = "aws ec2 wait instance-status-ok --instance-ids ${aws_instance.web2.id}"
   }
   depends_on = [aws_instance.web2]
 }
-}
-
 output "public_ip"{
   value = aws_instance.web2.public_ip
 }
