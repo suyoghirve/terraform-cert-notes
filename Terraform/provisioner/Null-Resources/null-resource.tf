@@ -19,12 +19,13 @@ terraform {
 /*provider "aws" {
   region  = "us-east-1"
 }*/
-resource "null" "web2" {
-  provisioner "local_exec"{
-    command = "aws ec2 wait instance-status-ok --instance-ids ${aws_instance.web2.id}"
+resource "null_resource" "example1" {
+  provisioner "local-exec" {
+    command = "open WFH, '>completed.txt' and print WFH scalar localtime"
+    interpreter = ["perl", "-e"]
   }
-  depends_on = [aws_instance.web2]
 }
+
 resource "aws_security_group" "allow_ssh_http" {
   name        = "allow_ssh_http"
   description = "Allow SSH inbound traffic"
