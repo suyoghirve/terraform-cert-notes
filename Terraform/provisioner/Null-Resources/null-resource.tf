@@ -3,11 +3,10 @@ terraform {
     aws = {
       source  = "hashicorp/aws"
       version = "4.51.0"
-    }
-    null = {
       source = "hashicorp/null"
       version = "3.2.1"
     }
+    
   }
   /*backend "s3" {
     bucket        = "terraform-suyog"
