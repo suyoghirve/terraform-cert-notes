@@ -14,9 +14,9 @@ terraform {
   }*/
 
 }
-provider "aws" {
+/*provider "aws" {
   region  = "us-east-1"
-}
+}*/
 
 resource "aws_security_group" "allow_ssh_http" {
   name        = "allow_ssh_http"
