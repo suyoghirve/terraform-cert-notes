@@ -15,14 +15,6 @@ provider "aws" {
   region  = "us-east-1"
 }
 
-resource "null_resource" "status"{
-  provisioner "local_exec"{
-    command = "aws ec2 wait instance-status-ok --instance-ids ${aws_instance.web2.id}"
-  }
-  depends_on = [
-    aws_instance.web2
-    ]
-}
 resource "aws_security_group" "allow_ssh_http" {
   name        = "allow_ssh_http"
   description = "Allow SSH inbound traffic"
@@ -85,6 +77,14 @@ resource "aws_instance" "web2" {
       "echo ${self.private_ip} >> /home/ec2-user/private_ips.txt"
     ]
   }*/
+}
+resource "null_resource" "status"{
+  provisioner "local_exec"{
+    command = "aws ec2 wait instance-status-ok --instance-ids ${aws_instance.web2.id}"
+  }
+  depends_on = [
+    aws_instance.web2
+    ]
 }
 output "public_ip"{
   value = aws_instance.web2.public_ip
