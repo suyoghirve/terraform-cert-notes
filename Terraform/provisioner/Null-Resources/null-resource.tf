@@ -81,7 +81,7 @@ resource "aws_instance" "web2" {
     ]
   }*/
 }
-resource "null_resource" "status" {
+resource "null_resource" "web2" {
   provisioner "local_exec"{
     command = "aws ec2 wait instance-status-ok --instance-ids ${aws_instance.web2.id}"
   }
