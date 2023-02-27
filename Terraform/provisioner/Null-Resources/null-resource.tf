@@ -79,24 +79,14 @@ resource "aws_instance" "web2" {
     ]
   }*/
 
-
-}
-
-terraform {
-  required_providers {
-    null = {
-      source = "hashicorp/null"
-      version = "3.2.1"
-    }
-  }
-}
-
 resource "null" "web2" {
   provisioner "local_exec"{
     command = "aws ec2 wait instance-status-ok --instance-ids ${aws_instance.web2.id}"
   }
   depends_on = [aws_instance.web2]
 }
+}
+
 output "public_ip"{
   value = aws_instance.web2.public_ip
 }
