@@ -17,6 +17,22 @@ resource "aws_instance" "instance" {
     create = "10m"
   }
 
+resource "aws_eip" "eip" {
+  count            = length(aws_instance.instance.*.id)
+  instance         = element(aws_instance.instance.*.id, count.index)
+  public_ipv4_pool = "amazon"
+  vpc              = true
+
+  tags = {
+    "Name" = "EIP-${count.index}"
+  }
+}
+
+resource "aws_eip_association" "eip_association" {
+  count         = length(aws_eip.eip)
+  instance_id   = element(aws_instance.instance.*.id, count.index)
+  allocation_id = element(aws_eip.eip.*.id, count.index)
+}
 }
 
 /*resource "null_resource" "null" {
