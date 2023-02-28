@@ -7,7 +7,7 @@ resource "aws_vpc" "custom_vpc" {
 resource "aws_subnet" "public_subnet" {
   count             = var.custom_vpc == "10.0.0.0/16" ? 3 : 0
   vpc_id            = aws_vpc.custom_vpc.id
-  availability_zone = data.aws_availability_zones.azs.names[count.index]
+  #availability_zone = data.aws_availability_zones.azs.names[count.index]
   cidr_block        = element(cidrsubnets(var.custom_vpc, 8, 4, 4), count.index)
 
   tags = {
