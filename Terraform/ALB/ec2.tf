@@ -39,7 +39,7 @@ resource "null_resource" "null" {
     type        = "ssh"
     user        = "ec2-user"
     port        = "22"
-    host        = element(self.public_ip, count.index)
+    host        = element(aws_instance.instance.*.public_ip, count.index)
     private_key = file(var.ssh_private_key)
   }
 
