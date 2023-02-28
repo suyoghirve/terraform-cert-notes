@@ -19,7 +19,7 @@ resource "aws_instance" "instance" {
 
 }
 
-resource "null_resource" "null" {
+/*resource "null_resource" "null" {
   count = length(aws_subnet.public_subnet.*.id)
 
   provisioner "file" {
@@ -41,6 +41,5 @@ resource "null_resource" "null" {
     port        = "22"
     host        = element(aws_instance.instance.*.public_ip, count.index)
     private_key = file(var.ssh_private_key)
-  }
+  }*/
 
-}
