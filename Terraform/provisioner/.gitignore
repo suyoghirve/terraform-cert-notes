@@ -1,4 +1,5 @@
-.terraform
+*.pem
+*.terraform
 *.tfvars
-*.tfstate
-ownkey.pem
+/ownkey.pem
+ownkey.pem/
