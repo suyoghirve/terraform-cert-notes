@@ -16,6 +16,7 @@ resource "aws_instance" "instance" {
   timeouts {
     create = "10m"
   }
+}
 
 resource "aws_eip" "eip" {
   count            = length(aws_instance.instance.*.id)
@@ -33,8 +34,6 @@ resource "aws_eip_association" "eip_association" {
   instance_id   = element(aws_instance.instance.*.id, count.index)
   allocation_id = element(aws_eip.eip.*.id, count.index)
 }
-}
-
 /*resource "null_resource" "null" {
   count = length(aws_subnet.public_subnet.*.id)
 
