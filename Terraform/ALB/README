@@ -1,0 +1,6 @@
+if .gitignore is not working please do the following changes
+   -----------
+Remember to commit everything you've changed before you do this!
+--------------------------------------------------------------------
+git rm -rf --cached .
+git add .
