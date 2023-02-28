@@ -5,7 +5,7 @@ resource "aws_instance" "instance" {
   subnet_id            = element(aws_subnet.public_subnet.*.id, count.index)
   security_groups      = [aws_security_group.sg.id, ]
   key_name             = "Keypair-01"
-  iam_instance_profile = data.aws_iam_role.iam_role.name
+  #iam_instance_profile = data.aws_iam_role.iam_role.name
 
   tags = {
     "Name"        = "Instance-${count.index}"
@@ -39,7 +39,7 @@ resource "null_resource" "null" {
     type        = "ssh"
     user        = "ec2-user"
     port        = "22"
-    host        = element(aws_eip.eip.*.public_ip, count.index)
+    host        = element(self.public_ip, count.index)
     private_key = file(var.ssh_private_key)
   }
 
