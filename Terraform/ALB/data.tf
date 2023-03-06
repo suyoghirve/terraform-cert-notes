@@ -1,6 +1,6 @@
 data "aws_elb_service_account" "main" {}
 
-resource "aws_s3_bucket" "elb_logs" {
+resource "aws_s3_bucket" "elb_logs" {          # this will create a new bucket
   bucket = "my-elb-tf-test-bucket-suyog"
   acl    = "private"
 
