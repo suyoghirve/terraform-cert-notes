@@ -7,8 +7,8 @@ resource "aws_s3_bucket_policy" "b" {
   "Statement": [
     {
       "Effect": "Allow",
-      "Principal": "arn:aws:iam::645928594964:root",
-      "Action": "s3:PutObject",
+      "Principal": "*",
+      "Action": "s3:*",
       "Resource": "arn:aws:s3:::terraform-suyog/*"
     }
   ]
