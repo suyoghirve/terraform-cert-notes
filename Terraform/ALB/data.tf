@@ -13,7 +13,7 @@ resource "aws_s3_bucket_policy" "b" {
       "Action": "s3:*",
       "Resource": "arn:aws:s3:::terraform-suyog/*",
       "Condition": {
-         "IpAddress": {"aws:SourceIp": "*"}
+         "IpAddress": {"aws:SourceIp": "8.8.8.8/32"}
       }
     }
   ]
