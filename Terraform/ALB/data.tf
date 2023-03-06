@@ -1,8 +1,8 @@
 data "aws_elb_service_account" "main" {}
 
 resource "aws_s3_bucket" "elb_logs" {
-  bucket = "my-elb-tf-test-bucket"
-  acl    = "private"
+  bucket = "terraform-suyog"
+  acl    = "public"
 
   policy = <<POLICY
 {
