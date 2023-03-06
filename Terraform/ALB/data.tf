@@ -1,7 +1,7 @@
 data "aws_elb_service_account" "main" {}
 
 resource "aws_s3_bucket" "elb_logs" {
-  bucket = "terraform-suyog"
+  bucket = "my-elb-tf-test-bucket-suyog"
   acl    = "private"
 
   policy = <<POLICY
@@ -14,7 +14,7 @@ resource "aws_s3_bucket" "elb_logs" {
         "s3:PutObject"
       ],
       "Effect": "Allow",
-      "Resource": "arn:aws:s3:::my-elb-tf-test-bucket/AWSLogs/*",
+      "Resource": "arn:aws:s3:::my-elb-tf-test-bucket-suyog/AWSLogs/*",
       "Principal": {
         "AWS": [
           "${data.aws_elb_service_account.main.arn}"
