@@ -1,5 +1,5 @@
 resource "aws_s3_bucket_policy" "b" {
-  bucket = "terraform-suyog"
+  bucket  = "terraform-suyog"
 
   policy = <<POLICY
 {
@@ -7,10 +7,14 @@ resource "aws_s3_bucket_policy" "b" {
   "Id": "MYBUCKETPOLICY",
   "Statement": [
     {
+      "Sid": "IPAllow",
       "Effect": "Allow",
       "Principal": "*",
       "Action": "s3:*",
       "Resource": "arn:aws:s3:::terraform-suyog/*",
+      "Condition": {
+         "IpAddress": {"aws:SourceIp": "*"}
+      }
     }
   ]
 }
