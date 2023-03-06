@@ -15,9 +15,3 @@ resource "aws_s3_bucket_policy" "b" {
 }
 POLICY
 }
-
-
-backend "s3" {
-    bucket        = "terraform-suyog"
-    region        = "us-east-1"
-  }
