@@ -20,7 +20,7 @@ resource "aws_lb" "lb" {
   subnets            = aws_subnet.public_subnet.*.id
 
   access_logs {
-    bucket  = terraform-suyog
+    bucket  = "terraform-suyog"
     prefix  = "alb-logs"
     enabled = true
   }
