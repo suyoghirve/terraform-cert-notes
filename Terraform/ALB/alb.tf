@@ -18,6 +18,13 @@ resource "aws_lb" "lb" {
   load_balancer_type = "application"
   security_groups    = [aws_security_group.sg.id, ]
   subnets            = aws_subnet.public_subnet.*.id
+
+  access_logs {
+    bucket  = terraform-suyog
+    prefix  = "alb-logs"
+    enabled = true
+  }
+
 }
 
 resource "aws_lb_listener" "front_end" {
