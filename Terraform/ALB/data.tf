@@ -1,20 +1,16 @@
 resource "aws_s3_bucket_policy" "b" {
   bucket  = "terraform-suyog"
-
+  region = "us-east-1"
+  
   policy = <<POLICY
 {
   "Version": "2012-10-17",
-  "Id": "MYBUCKETPOLICY",
   "Statement": [
     {
-      "Sid": "IPAllow",
       "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:*",
-      "Resource": "arn:aws:s3:::terraform-suyog/*",
-      "Condition": {
-         "IpAddress": {"aws:SourceIp": "8.8.8.8/32"}
-      }
+      "Principal": "arn:aws:iam::645928594964:root",
+      "Action": "s3:PutObject",
+      "Resource": "arn:aws:s3:::terraform-suyog/*"
     }
   ]
 }
