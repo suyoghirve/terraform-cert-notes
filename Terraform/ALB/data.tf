@@ -1,6 +1,5 @@
 resource "aws_s3_bucket_policy" "b" {
   bucket  = "terraform-suyog"
-  region = "us-east-1"
   
   policy = <<POLICY
 {
