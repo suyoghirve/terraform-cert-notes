@@ -14,7 +14,7 @@ resource "aws_alb_target_group_attachment" "tgattachment" {
 
 resource "aws_lb" "lb" {
   name               = "ALB"
-  internal           = false
+  internal           = true
   load_balancer_type = "application"
   security_groups    = [aws_security_group.sg.id, ]
   subnets            = aws_subnet.public_subnet.*.id
