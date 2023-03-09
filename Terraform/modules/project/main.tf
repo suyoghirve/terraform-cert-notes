@@ -12,8 +12,7 @@ terraform {
 
 }
 provider "aws" {
-  region  = "ap-south-1"
-  profile = "planitnerd"
+  region  = "us-east-1"
 }
 
 module "ec2module" {            # Any module name you can choose
