@@ -1,12 +1,11 @@
 provider "aws" {
-  region  = "ap-south-1"
-  profile = "planitnerd"
+  region  = "us-east-1"
 }
 terraform {
   backend "s3" {
-    bucket        = "bysystem-tm"
-    key  = "demo.tfstate"
-    dynamodb_table = "terraform_statelocking"
-    region        = "ap-south-1"
+    bucket        = "terraform-suyog"
+    key  = "state-lock"
+    dynamodb_table = "state-locking"
+    region        = "us-east-1"
   }
 }
