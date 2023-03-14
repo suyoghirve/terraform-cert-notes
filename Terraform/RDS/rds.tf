@@ -15,6 +15,6 @@ resource "aws_db_instance" "default" {
   username             = "mydatabase"
   password             =file("../rds_pass.txt")  #"${file("../rds_pass.txt")}"
   parameter_group_name = "default.mysql5.7"
-  skip_final_snapshot  = true
+  skip_final_snapshot  = "true"
 }
 
