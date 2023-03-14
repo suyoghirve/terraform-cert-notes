@@ -1,11 +1,10 @@
 terraform {
   required_providers {
     aws = {
-      source  = "hashicorp/aws"
-      version = "4.51.0"
+      source = "hashicorp/aws"
+      version = "4.58.0"
     }
   }
-
 }
 resource "aws_db_instance" "default" {
   allocated_storage    = 10
