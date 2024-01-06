@@ -3,3 +3,4 @@
 *.tfstate
 rds_pass.txt
 *.docker
+*.evertything
